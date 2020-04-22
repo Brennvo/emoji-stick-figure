@@ -1,0 +1,17 @@
+.card {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.card__avatar {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__avatar__emoji {
+  font-size: 50px;
+}

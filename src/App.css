@@ -1,38 +1,59 @@
+:root {
+  --dark-blue: #030742;
+  --darkest-purple: #11002c;
+  --not-selected: #2e0275;
+  --disabled: hsl(263, 97%, 23%);
+  --selected: #ff6f61ff;
+  --light-purple: hsl(263, 100%, 88%);
+  --dark-purple: #242582;
+  --purple: #2f2fa2;
+  --dark-lavendar: #553d67;
+  --lavendar: #99738e;
+  --pink: #f64c72;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--darkest-purple);
+  color: white;
+}
+
+.element--hide {
+  position: fixed;
+  opacity: 0;
+}
+
+.cont {
+  display: flex;
+}
+
+.cont--direction-col {
+  flex-direction: column;
+}
+
+.cont--align-center {
+  align-items: center;
+}
+
+.cont--justify-center {
+  justify-content: center;
+}
+
+.modal__character {
+  font-size: 50px;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn--hidden {
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }

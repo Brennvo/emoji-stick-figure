@@ -1,0 +1,23 @@
+.emoji-fieldset {
+  position: relative;
+  margin: 10px;
+  border: none;
+  padding-top: 20px;
+  font-size: 24px;
+}
+
+.emoji-fieldset__optn {
+  padding: 5px;
+  margin: 2px;
+  background: var(--lighter-purple);
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px black;
+}
+
+.emoji-fieldset__optn--selected {
+  background: var(--selected);
+}
+
+.emoji-fieldset__optn--not-selected {
+  background: var(--not-selected);
+}
