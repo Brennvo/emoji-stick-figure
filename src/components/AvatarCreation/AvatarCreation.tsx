@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar } from "../../interfaces/Avatar.interface";
 import EmojiChar from "../EmojiChar";
-import "./AvatarCreation.css";
+import "./AvatarCreation.scss";
 
 type Props = {
   avatar: Avatar;

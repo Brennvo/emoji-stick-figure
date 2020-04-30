@@ -1,5 +1,5 @@
 import React from "react";
-import "./PageWrapper.css";
+import "./PageWrapper.scss";
 
 type Props = {
   children: React.ReactNode;

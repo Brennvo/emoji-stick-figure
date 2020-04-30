@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar } from "../../interfaces/Avatar.interface";
 import AvatarCreation from "../AvatarCreation";
-import "./FittingRoom.css";
+import "./FittingRoom.scss";
 
 type Props = {
   avatar: Avatar;

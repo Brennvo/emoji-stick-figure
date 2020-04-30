@@ -1,5 +1,5 @@
 import React, { useReducer, useState, useEffect } from "react";
-import "./App.css";
+import "./App.scss";
 import { Emoji } from "./interfaces/Emoji.interface";
 import { Avatar } from "./interfaces/Avatar.interface";
 import PageWrapper from "./layouts/PageWrapper/PageWrapper";
@@ -23,6 +23,7 @@ type AppState = {
   emojis?: Emoji[];
   avatars: Avatar[];
   selectedAvatar?: Avatar;
+  errMsg?: string;
 };
 
 const initialAppState: AppState = {
@@ -34,7 +35,7 @@ const initialAppState: AppState = {
 
 type Action =
   | { type: ActionType.SET_DATA; data: Emoji[] }
-  | { type: ActionType.SET_ERROR }
+  | { type: ActionType.SET_ERROR; errMsg: string }
   | { type: ActionType.ADD_AVATAR; data: Avatar }
   | { type: ActionType.OPEN_MODAL; data: Avatar }
   | { type: ActionType.CLOSE_MODAL };
@@ -57,6 +58,7 @@ const reducer: React.Reducer<AppState, Action> = (
         ...state,
         isLoading: false,
         isError: true,
+        errMsg: action.errMsg,
         isModalOpen: false,
       };
     case ActionType.ADD_AVATAR:
@@ -96,19 +98,21 @@ const App = () => {
   const onModalClose = () => dispatch({ type: ActionType.CLOSE_MODAL });
 
   useEffect(() => {
-    fetch("http://localhost:3001/emojis")
+    fetch("http://192.168.1.194:3001/emojis")
       .then((res) => res.json())
       .then((data: Emoji[]) => dispatch({ type: ActionType.SET_DATA, data }))
-      .catch((err) => dispatch({ type: ActionType.SET_ERROR }));
+      .catch((err) =>
+        dispatch({ type: ActionType.SET_ERROR, errMsg: err.message })
+      );
   }, []);
 
   if (state.isLoading) return <p>Loading...</p>;
 
-  if (state.isError) return <p>Sorry, we could not process your request.</p>;
+  if (state.isError)
+    return <p>Sorry, we could not process your request. {state.errMsg}</p>;
 
   return (
     <div className="App">
-      <h1>Emoji Creator</h1>
       <PageWrapper>
         <AvatarMaker
           faces={state.emojis!.filter((emoji) => emoji.category === "face")}

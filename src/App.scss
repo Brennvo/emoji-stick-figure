@@ -1,3 +1,5 @@
+@import "~rfs/scss";
+
 :root {
   --dark-blue: #030742;
   --darkest-purple: #11002c;
@@ -10,16 +12,19 @@
   --dark-lavendar: #553d67;
   --lavendar: #99738e;
   --pink: #f64c72;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+  --turqoise: #2b7a78;
+  --pastel-blue: #83c6dd;
+  --pastel-green: #90c978;
+  --main: #2a0172;
+  --secondary: #9068d4;
+  --alt: #136f6431;
+  --circus-red: #d44343;
+  --circus-blue: #4bb1df;
+  --circus-yellow: #f0f73c;
 }
 
 body {
-  background: var(--darkest-purple);
+  background: var(--main);
   color: white;
 }
 
@@ -45,7 +50,7 @@ body {
 }
 
 .modal__character {
-  font-size: 50px;
+  @include font-size(50px);
 }
 
 .App {

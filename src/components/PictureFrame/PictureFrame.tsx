@@ -1,5 +1,5 @@
 import React from "react";
-import "./PictureFrame.css";
+import "./PictureFrame.scss";
 import { Avatar } from "../../interfaces/Avatar.interface";
 import AvatarCreation from "../AvatarCreation";
 
