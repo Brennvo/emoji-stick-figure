@@ -1,33 +1,5 @@
 @import "~rfs/scss";
 
-:root {
-  --dark-blue: #030742;
-  --darkest-purple: #11002c;
-  --not-selected: #2e0275;
-  --disabled: hsl(263, 97%, 23%);
-  --selected: #ff6f61ff;
-  --light-purple: hsl(263, 100%, 88%);
-  --dark-purple: #242582;
-  --purple: #2f2fa2;
-  --dark-lavendar: #553d67;
-  --lavendar: #99738e;
-  --pink: #f64c72;
-  --turqoise: #2b7a78;
-  --pastel-blue: #83c6dd;
-  --pastel-green: #90c978;
-  --main: #2a0172;
-  --secondary: #9068d4;
-  --alt: #136f6431;
-  --circus-red: #d44343;
-  --circus-blue: #4bb1df;
-  --circus-yellow: #f0f73c;
-}
-
-body {
-  background: var(--main);
-  color: white;
-}
-
 .element--hide {
   position: fixed;
   opacity: 0;

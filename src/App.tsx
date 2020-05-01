@@ -1,12 +1,12 @@
-import React, { useReducer, useState, useEffect } from "react";
+import React, { useReducer } from "react";
 import "./App.scss";
 import { Emoji } from "./interfaces/Emoji.interface";
 import { Avatar } from "./interfaces/Avatar.interface";
 import PageWrapper from "./layouts/PageWrapper/PageWrapper";
 import AvatarMaker from "./components/AvatarMaker";
-import AvatarCreationList from "./components/AvatarCreationList";
 import Modal from "./components/Modal";
 import PictureFrame from "./components/PictureFrame";
+import emojis from "./data/emojis";
 
 enum ActionType {
   SET_DATA = "SET_DATA",
@@ -45,27 +45,6 @@ const reducer: React.Reducer<AppState, Action> = (
   action: Action
 ) => {
   switch (action.type) {
-    case ActionType.SET_DATA:
-      return {
-        ...state,
-        isLoading: false,
-        isError: false,
-        isModalOpen: false,
-        emojis: action.data,
-      };
-    case ActionType.SET_ERROR:
-      return {
-        ...state,
-        isLoading: false,
-        isError: true,
-        errMsg: action.errMsg,
-        isModalOpen: false,
-      };
-    case ActionType.ADD_AVATAR:
-      return {
-        ...state,
-        avatars: [...state.avatars, action.data],
-      };
     case ActionType.OPEN_MODAL:
       return {
         ...state,
@@ -87,42 +66,23 @@ const App = () => {
     reducer,
     initialAppState
   );
-  const [avatars, setAvatars] = useState<Avatar[]>([]);
 
-  const onSave = (avatar: Avatar) =>
-    setAvatars((prevAvatars: Avatar[]) => [...prevAvatars, avatar]);
-
-  const onAvatarOpen = (avatar: Avatar) =>
+  const openModal = (avatar: Avatar) =>
     dispatch({ type: ActionType.OPEN_MODAL, data: avatar });
 
   const onModalClose = () => dispatch({ type: ActionType.CLOSE_MODAL });
-
-  useEffect(() => {
-    fetch("http://192.168.1.194:3001/emojis")
-      .then((res) => res.json())
-      .then((data: Emoji[]) => dispatch({ type: ActionType.SET_DATA, data }))
-      .catch((err) =>
-        dispatch({ type: ActionType.SET_ERROR, errMsg: err.message })
-      );
-  }, []);
-
-  if (state.isLoading) return <p>Loading...</p>;
-
-  if (state.isError)
-    return <p>Sorry, we could not process your request. {state.errMsg}</p>;
 
   return (
     <div className="App">
       <PageWrapper>
         <AvatarMaker
-          faces={state.emojis!.filter((emoji) => emoji.category === "face")}
-          hats={state.emojis!.filter((emoji) => emoji.category === "hat")}
-          tops={state.emojis!.filter((emoji) => emoji.category === "top")}
-          bottoms={state.emojis!.filter((emoji) => emoji.category === "bottom")}
-          shoes={state.emojis!.filter((emoji) => emoji.category === "shoe")}
-          onSave={onSave}
+          faces={emojis.filter((emoji) => emoji.category === "face")}
+          hats={emojis.filter((emoji) => emoji.category === "hat")}
+          tops={emojis.filter((emoji) => emoji.category === "top")}
+          bottoms={emojis.filter((emoji) => emoji.category === "bottom")}
+          shoes={emojis.filter((emoji) => emoji.category === "shoe")}
+          onFinish={openModal}
         />
-        <AvatarCreationList onOpen={onAvatarOpen} avatars={avatars} />
         <Modal isOpen={state.isModalOpen}>
           <PictureFrame
             onFrameClose={onModalClose}

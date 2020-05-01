@@ -17,7 +17,7 @@ const EmojiPicker = ({
   avatarSelections,
 }: Props) => (
   <fieldset className="emoji-fieldset">
-    <legend>Pick from these {emojiCategory}:</legend>
+    <legend style={{ margin: "auto" }}>Pick from these {emojiCategory}:</legend>
     {emojis.map((emoji: Emoji) => (
       <span
         className={`emoji-fieldset__optn ${

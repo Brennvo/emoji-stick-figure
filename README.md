@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## MeMoji
+
+MeMoji is a fun, interactive application to curate your own avatar using only Emojis. Pick and choose from a series smiley faces (or not so smiley) and clothing to send to your friends. Simply go through each category, and when finished, copy to your clipboard to paste and share.
+
 ## Available Scripts
 
 In the project directory, you can run:

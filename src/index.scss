@@ -1,3 +1,12 @@
+:root {
+  --main: #2a0172;
+  --secondary: #9068d4;
+  --circus-red: #d44343;
+  --circus-blue: #4bb1df;
+  --circus-yellow: #f0f73c;
+  --pastel-green: #90c978;
+}
+
 html {
   font-size: 62.5%;
   box-sizing: border-box;
@@ -16,6 +25,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--main);
+  color: white;
 }
 
 code {

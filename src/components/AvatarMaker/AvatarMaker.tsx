@@ -7,12 +7,17 @@ import "./AvatarMaker.scss";
 import FittingRoom from "../FittingRoom/FittingRoom";
 
 const initialAvatar = {
-  name: "",
-  face: "",
   hat: "",
+  face: "",
   top: "",
   bottom: "",
   shoe: "",
+  toString: function () {
+    const apparelItems: any = Object.values(this).filter(
+      (value) => value !== "" && typeof value === "string"
+    );
+    return apparelItems.join("\n");
+  },
 };
 
 type Props = {
@@ -21,11 +26,11 @@ type Props = {
   tops: Emoji[];
   bottoms: Emoji[];
   shoes: Emoji[];
-  onSave: (avatar: Avatar) => void;
+  onFinish: (avatar: Avatar) => void;
   [key: string]: Emoji[] | Function;
 };
 
-const AvatarMaker = ({ onSave, ...categories }: Props) => {
+const AvatarMaker = ({ onFinish, ...categories }: Props) => {
   const [creation, setCreation] = useState<Avatar>(initialAvatar);
   const [category, setCategory] = useState<EmojiCategory>(EmojiCategory.faces);
 
@@ -38,33 +43,15 @@ const AvatarMaker = ({ onSave, ...categories }: Props) => {
     );
   };
 
-  const onNameChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const { value: name } = event.currentTarget;
-
-    setCreation(
-      (creation: Avatar): Avatar => ({
-        ...creation,
-        name,
-      })
-    );
-  };
-
   const createEmoji = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    onSave(creation);
+    onFinish(creation);
     setCreation(initialAvatar);
     setCategory(EmojiCategory.faces);
   };
 
   return (
     <section className="create-emoji cont cont--direction-col cont--align-center">
-      <input
-        className="create-emoji__input cont__item--grow"
-        type="text"
-        onChange={onNameChange}
-        placeholder="Enter your avatar's name!"
-        value={creation.name || ""}
-      />
       <FittingRoom avatar={creation} />
       <div>
         <form onSubmit={createEmoji}>
@@ -142,7 +129,7 @@ const defaultProps: Props = {
   tops: [],
   bottoms: [],
   shoes: [],
-  onSave: () => undefined,
+  onFinish: () => undefined,
 };
 
 AvatarMaker.defaultProps = defaultProps;
