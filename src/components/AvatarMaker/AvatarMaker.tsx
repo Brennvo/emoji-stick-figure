@@ -3,16 +3,21 @@ import { Emoji } from "../../interfaces/Emoji.interface";
 import { Avatar } from "../../interfaces/Avatar.interface";
 import { EmojiCategory } from "../../enums/EmojiCategory.enum";
 import EmojiPicker from "../EmojiPicker";
-import "./AvatarMaker.css";
+import "./AvatarMaker.scss";
 import FittingRoom from "../FittingRoom/FittingRoom";
 
 const initialAvatar = {
-  name: "",
-  face: "",
   hat: "",
+  face: "",
   top: "",
   bottom: "",
   shoe: "",
+  toString: function () {
+    const apparelItems: any = Object.values(this).filter(
+      (value) => value !== "" && typeof value === "string"
+    );
+    return apparelItems.join("\n");
+  },
 };
 
 type Props = {
@@ -21,11 +26,11 @@ type Props = {
   tops: Emoji[];
   bottoms: Emoji[];
   shoes: Emoji[];
-  onSave: (avatar: Avatar) => void;
+  onFinish: (avatar: Avatar) => void;
   [key: string]: Emoji[] | Function;
 };
 
-const AvatarMaker = ({ onSave, ...categories }: Props) => {
+const AvatarMaker = ({ onFinish, ...categories }: Props) => {
   const [creation, setCreation] = useState<Avatar>(initialAvatar);
   const [category, setCategory] = useState<EmojiCategory>(EmojiCategory.faces);
 
@@ -38,33 +43,15 @@ const AvatarMaker = ({ onSave, ...categories }: Props) => {
     );
   };
 
-  const onNameChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const { value: name } = event.currentTarget;
-
-    setCreation(
-      (creation: Avatar): Avatar => ({
-        ...creation,
-        name,
-      })
-    );
-  };
-
   const createEmoji = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    onSave(creation);
+    onFinish(creation);
     setCreation(initialAvatar);
     setCategory(EmojiCategory.faces);
   };
 
   return (
     <section className="create-emoji cont cont--direction-col cont--align-center">
-      <input
-        className="create-emoji__input cont__item--grow"
-        type="text"
-        onChange={onNameChange}
-        placeholder="Enter your avatar's name!"
-        value={creation.name || ""}
-      />
       <FittingRoom avatar={creation} />
       <div>
         <form onSubmit={createEmoji}>
@@ -74,36 +61,34 @@ const AvatarMaker = ({ onSave, ...categories }: Props) => {
             onEmojiSelection={updateCreation}
             avatarSelections={Object.values(creation)}
           />
-          <div className="cont cont--justify-center">
-            <button
-              className={`create-emoji__btn ${
-                category === EmojiCategory.faces
-                  ? "create-emoji__btn--disabled"
-                  : ""
-              }`}
-              type="button"
-              onClick={() =>
-                setCategory((prevCategory: EmojiCategory) => {
-                  switch (prevCategory) {
-                    case EmojiCategory.shoes:
-                      return EmojiCategory.bottoms;
-                    case EmojiCategory.bottoms:
-                      return EmojiCategory.tops;
-                    case EmojiCategory.tops:
-                      return EmojiCategory.hats;
-                    case EmojiCategory.hats:
-                      return EmojiCategory.faces;
-                    default:
-                      return EmojiCategory.faces;
-                  }
-                })
-              }
-            >
-              Previous Category
-            </button>
+          <div className="cont cont--justify-center create-emoji__btn-group">
+            {category !== EmojiCategory.faces && (
+              <button
+                className="create-emoji__btn"
+                type="button"
+                onClick={() =>
+                  setCategory((prevCategory: EmojiCategory) => {
+                    switch (prevCategory) {
+                      case EmojiCategory.shoes:
+                        return EmojiCategory.bottoms;
+                      case EmojiCategory.bottoms:
+                        return EmojiCategory.tops;
+                      case EmojiCategory.tops:
+                        return EmojiCategory.hats;
+                      case EmojiCategory.hats:
+                        return EmojiCategory.faces;
+                      default:
+                        return EmojiCategory.faces;
+                    }
+                  })
+                }
+              >
+                Previous Category
+              </button>
+            )}
             {category === EmojiCategory.shoes ? (
               <input
-                className="create-emoji__btn"
+                className="create-emoji__btn--final"
                 type="submit"
                 value="Finish"
               />
@@ -144,7 +129,7 @@ const defaultProps: Props = {
   tops: [],
   bottoms: [],
   shoes: [],
-  onSave: () => undefined,
+  onFinish: () => undefined,
 };
 
 AvatarMaker.defaultProps = defaultProps;

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Modal.css";
+import "./Modal.scss";
 import Portal from "../Portal";
 
 type Props = {

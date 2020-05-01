@@ -10,13 +10,14 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "rfs": "^9.0.3",
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "dev": "concurrently --kill-others-on-fail \"npm start\" \"json-server -p 3001 -w db.json\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -37,8 +38,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "concurrently": "^5.1.0",
-    "json-server": "^0.16.1"
-  }
+  "devDependencies": {}
 }

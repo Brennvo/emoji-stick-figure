@@ -1,0 +1,54 @@
+.create-emoji {
+  width: 100%;
+  padding: 1rem 0 0 0;
+}
+
+button,
+input {
+  -webkit-appearance: none;
+}
+
+.create-emoji__btn,
+.create-emoji__btn--final {
+  flex-basis: 50%;
+  margin: 0 0.2rem;
+  flex: 0 0 13rem;
+  border: none;
+  background: var(--circus-blue);
+  color: black;
+  padding: 1rem;
+  border-radius: 0.3rem;
+}
+
+.create-emoji__btn--final {
+  background: var(--pastel-green);
+}
+
+.create-emoji__btn:focus {
+  outline: none;
+}
+
+.create-emoji__input {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1.6rem;
+  width: 100%;
+  max-width: 34rem;
+  background: var(--main);
+  text-align: center;
+  color: white;
+  border: unset;
+  border-bottom: 0.2rem solid var(--secondary);
+}
+
+.create-emoji__input::placeholder {
+  color: white;
+}
+
+.create-emoji__input:focus {
+  outline: none;
+}
+
+.create-emoji__input:focus::placeholder {
+  color: transparent;
+}

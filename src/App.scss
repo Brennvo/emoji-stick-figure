@@ -1,0 +1,36 @@
+@import "~rfs/scss";
+
+.element--hide {
+  position: fixed;
+  opacity: 0;
+}
+
+.cont {
+  display: flex;
+}
+
+.cont--direction-col {
+  flex-direction: column;
+}
+
+.cont--align-center {
+  align-items: center;
+}
+
+.cont--justify-center {
+  justify-content: center;
+}
+
+.modal__character {
+  @include font-size(50px);
+}
+
+.App {
+  text-align: center;
+}
+
+.btn--hidden {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}

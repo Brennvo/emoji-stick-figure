@@ -1,5 +1,5 @@
 import React from "react";
-import "./AvatarHeadshot.css";
+import "./AvatarHeadshot.scss";
 import EmojiChar from "../EmojiChar";
 
 type Props = {

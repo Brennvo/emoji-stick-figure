@@ -1,7 +1,7 @@
 import React from "react";
 import { Emoji } from "../../interfaces/Emoji.interface";
 import { EmojiCategory } from "../../enums/EmojiCategory.enum";
-import "./EmojiPicker.css";
+import "./EmojiPicker.scss";
 
 type Props = {
   emojis: Emoji[];
@@ -17,7 +17,7 @@ const EmojiPicker = ({
   avatarSelections,
 }: Props) => (
   <fieldset className="emoji-fieldset">
-    <legend>Choose from these {emojiCategory}:</legend>
+    <legend style={{ margin: "auto" }}>Pick from these {emojiCategory}:</legend>
     {emojis.map((emoji: Emoji) => (
       <span
         className={`emoji-fieldset__optn ${
@@ -25,7 +25,6 @@ const EmojiPicker = ({
             ? "emoji-fieldset__optn--selected"
             : "emoji-fieldset__optn--not-selected"
         }`}
-        key={emoji.emojiChar}
       >
         <label htmlFor={emoji.name}>{emoji.emojiChar}</label>
         <input
