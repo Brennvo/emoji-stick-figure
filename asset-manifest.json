@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/MeMoji/static/css/main.4eb516cb.chunk.css",
-    "main.js": "/MeMoji/static/js/main.f8a0a85f.chunk.js",
-    "main.js.map": "/MeMoji/static/js/main.f8a0a85f.chunk.js.map",
+    "main.js": "/MeMoji/static/js/main.73bba6c7.chunk.js",
+    "main.js.map": "/MeMoji/static/js/main.73bba6c7.chunk.js.map",
     "runtime-main.js": "/MeMoji/static/js/runtime-main.b29c9a40.js",
     "runtime-main.js.map": "/MeMoji/static/js/runtime-main.b29c9a40.js.map",
     "static/js/2.c552b942.chunk.js": "/MeMoji/static/js/2.c552b942.chunk.js",
     "static/js/2.c552b942.chunk.js.map": "/MeMoji/static/js/2.c552b942.chunk.js.map",
     "index.html": "/MeMoji/index.html",
-    "precache-manifest.1064be34c3420c873835d3f346bad930.js": "/MeMoji/precache-manifest.1064be34c3420c873835d3f346bad930.js",
+    "precache-manifest.beaae0a35a1cc7c316b4d7f277573563.js": "/MeMoji/precache-manifest.beaae0a35a1cc7c316b4d7f277573563.js",
     "service-worker.js": "/MeMoji/service-worker.js",
     "static/css/main.4eb516cb.chunk.css.map": "/MeMoji/static/css/main.4eb516cb.chunk.css.map",
     "static/js/2.c552b942.chunk.js.LICENSE.txt": "/MeMoji/static/js/2.c552b942.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.b29c9a40.js",
     "static/js/2.c552b942.chunk.js",
     "static/css/main.4eb516cb.chunk.css",
-    "static/js/main.f8a0a85f.chunk.js"
+    "static/js/main.73bba6c7.chunk.js"
   ]
 }

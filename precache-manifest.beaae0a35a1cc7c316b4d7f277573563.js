@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "369e5b9f6cb06c09ec0e820c7ad26ea6",
+    "revision": "fb25411104a42b7768cf0394b3aef8cc",
     "url": "/MeMoji/index.html"
   },
   {
-    "revision": "a4e6ae7fce7a794d87a5",
+    "revision": "0dff0244d0c2ee4a7f45",
     "url": "/MeMoji/static/css/main.4eb516cb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/MeMoji/static/js/2.c552b942.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a4e6ae7fce7a794d87a5",
-    "url": "/MeMoji/static/js/main.f8a0a85f.chunk.js"
+    "revision": "0dff0244d0c2ee4a7f45",
+    "url": "/MeMoji/static/js/main.73bba6c7.chunk.js"
   },
   {
     "revision": "6786f76554b9db14acd2",
