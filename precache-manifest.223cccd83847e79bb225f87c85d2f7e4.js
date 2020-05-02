@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fb25411104a42b7768cf0394b3aef8cc",
+    "revision": "63443d90de8af099bac3febc3c0619cc",
     "url": "/MeMoji/index.html"
   },
   {
