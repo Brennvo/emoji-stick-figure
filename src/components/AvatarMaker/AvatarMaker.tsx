@@ -13,10 +13,14 @@ const initialAvatar = {
   bottom: "",
   shoe: "",
   toString: function () {
-    const apparelItems: any = Object.values(this).filter(
-      (value) => value !== "" && typeof value === "string"
-    );
-    return apparelItems.join("\n");
+    const apparelItems = [
+      this.hat,
+      this.face,
+      this.top,
+      this.bottom,
+      this.shoe,
+    ];
+    return apparelItems.filter((item) => item !== "").join("\n");
   },
 };
 
