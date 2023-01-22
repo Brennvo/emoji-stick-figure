@@ -1,6 +1,6 @@
 {
-  "homepage": "http://Brennvo.github.io/MeMoji",
-  "name": "emoji-avatar",
+  "homepage": "http://Brennvo.github.io/emoji-stick-figure",
+  "name": "emoji-stick-figure",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
