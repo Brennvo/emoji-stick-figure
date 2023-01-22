@@ -2,11 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Live Demo
 
-[Create your MeMoji now!](https://brennvo.github.io/MeMoji/)
+[Create your Emoji Stick Figure now!](https://brennvo.github.io/emoji-stick-figure/)
 
-## MeMoji
+## Emoji Stick Figure
 
-MeMoji is a fun, interactive application to curate your own avatar using only Emojis. Pick and choose from a series smiley faces (or not so smiley) and clothing to send to your friends. Simply go through each category, and when finished, copy to your clipboard to paste and share.
+Emoji Stick Figure is a fun, interactive application to curate your own avatar using only Emojis. Pick and choose from a series smiley faces (or not so smiley) and clothing to send to your friends. Simply go through each category, and when finished, copy to your clipboard to paste and share.
 
 ## Available Scripts
 
